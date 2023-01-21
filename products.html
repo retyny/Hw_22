@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+<div class="wrapper">
+  <div class="nav">
+    <ul>
+      <li id="productsLink" class="active">Products</li>
+      <input type="text" name='search' placeholder="search">
+    </ul>
+  </div>
+  <div id="section">
+    <div class="side-nav">
+      <ul>
+        <li class="active">All products</li>
+        <li class="Milk">Milk</li>
+        <li class="Chocolate">Chocolate</li>
+        <li  class="Alcohol">Alcohol</li>
+      </ul>
+    </div>
+    <div class="content" id="cards">
+
+    </div>
+    <form action="#" class="loader">
+      <input class="form-control" type="text" id="name" placeholder="Type id">
+      <input class="form-control" type="text" id="title" placeholder="Type product title">
+      <input class="form-control" type="text" id="manufacture" placeholder="Type manufacture">
+      <input class="form-control" type="number" id="price" placeholder="Type price">
+      <select class="form-control" id="type_prod">
+        <option value="milk">Milk</option>
+        <option value="chocolate">Chocolate</option>
+        <option value="alcohol">Alcohol</option>
+      </select>
+      <label>
+        <input class="form-control" type="number" id="fat"
+               placeholder="Type fat">
+      </label>
+      <button class="btn" onclick="addItem()">add</button>
+    </form>
+  </div>
+</div>
+<script src="js/Products.js"></script>
+<script src="js/Milk.js"></script>
+<script src="js/Chocolate.js"></script>
+<script src="js/Alcohol.js"></script>
+<script src="js/appl.js"></script>
+</body>
+</html>
