@@ -10,38 +10,42 @@
 <div class="wrapper">
   <div class="nav">
     <ul>
-      <li id="productsLink" class="active">Products</li>
+      <li id="productsLink" class="activeProd">Products</li>
+      <li id="addLink" class="activeAddProd">Add Products</li>
       <input type="text" name='search' placeholder="search">
     </ul>
   </div>
   <div id="section">
-    <div class="side-nav">
+    <div class="side-nav" id="side-nav">
       <ul>
-        <li class="active">All products</li>
-        <li class="Milk">Milk</li>
-        <li class="Chocolate">Chocolate</li>
-        <li  class="Alcohol">Alcohol</li>
+        <li class="showAllProducts" id="allProd">All products</li>
+        <li class="milk">Milk</li>
+        <li class="chocolate">Chocolate</li>
+        <li  class="alcohol">Alcohol</li>
       </ul>
     </div>
     <div class="content" id="cards">
 
     </div>
-    <form action="#" class="loader">
-      <input class="form-control" type="text" id="name" placeholder="Type id">
-      <input class="form-control" type="text" id="title" placeholder="Type product title">
-      <input class="form-control" type="text" id="manufacture" placeholder="Type manufacture">
-      <input class="form-control" type="number" id="price" placeholder="Type price">
-      <select class="form-control" id="type_prod">
-        <option value="milk">Milk</option>
-        <option value="chocolate">Chocolate</option>
-        <option value="alcohol">Alcohol</option>
-      </select>
-      <label>
-        <input class="form-control" type="number" id="fat"
-               placeholder="Type fat">
-      </label>
-      <button class="btn" onclick="addItem()">add</button>
-    </form>
+
+    <div class="hide" id="addProduct">
+      <form action="#" class="loader">
+        <input class="form-control" type="text" id="name" placeholder="Type id">
+        <input class="form-control" type="text" id="title" placeholder="Type product title">
+        <input class="form-control" type="text" id="manufacture" placeholder="Type manufacture">
+        <input class="form-control" type="number" id="price" placeholder="Type price">
+        <select class="form-control" id="type_prod">
+          <option value="milk">Milk</option>
+          <option value="chocolate">Chocolate</option>
+          <option value="alcohol">Alcohol</option>
+        </select>
+        <label>
+          <input class="form-control" type="number" id="fat"
+                 placeholder="Type fat">
+        </label>
+        <button class="btn" onclick="addItem()">add</button>
+      </form>
+    </div>
   </div>
 </div>
 <script src="js/Products.js"></script>

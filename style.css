@@ -171,3 +171,7 @@ ul
     border-color: green;
     background-color: rgb(197, 226, 196);
 }
+
+.hide {
+    display: none;
+}

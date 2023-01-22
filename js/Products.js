@@ -25,6 +25,7 @@ class Products {
             console.log(item);
             database.push(JSON.stringify(item));
             localStorage.setItem('items', JSON.stringify(database));
+
         } else if (categories === 'chocolate') {
             const color = document.getElementById('color').value;
             const item = new Chocolate(id, title, manufacture, price, categories, color);
@@ -32,13 +33,16 @@ class Products {
             database.push(JSON.stringify(item));
             localStorage.setItem('items', JSON.stringify(database));
         } else if (categories === 'alcohol') {
-            const alcohol1 = document.getElementById('percent').value;
-            const item = new Alcohol(id, title, manufacture, price, categories, alcohol1);
+            const alcohol = document.getElementById('percent').value;
+            const item = new Alcohol(id, title, manufacture, price, categories, alcohol);
             console.log(item);
             database.push(JSON.stringify(item));
             localStorage.setItem('items', JSON.stringify(database));
+
         }
     }
+
+
 
 
 }
