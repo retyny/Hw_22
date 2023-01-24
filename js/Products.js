@@ -13,27 +13,27 @@ class Products {
     }
 
     addProducts() {
-        const id = document.getElementById('name').value;
-        const title = document.getElementById('title').value;
-        const manufacture = document.getElementById('manufacture').value;
-        const price = document.getElementById('price').value;
-        const categories = document.getElementById('type_prod').value;
+        const id = $('#name').val();
+        const title = $('#title').val();
+        const manufacture = $('#manufacture').val();
+        const price = $('#price').val();
+        const categories = $('#type_prod').val();
 
         if (categories === 'milk') {
-            const fat = document.getElementById('fat').value;
+            const fat = $('#fat').val();
             const item = new Milk(id, title, manufacture, price, categories, fat);
             console.log(item);
             database.push(JSON.stringify(item));
             localStorage.setItem('items', JSON.stringify(database));
 
         } else if (categories === 'chocolate') {
-            const color = document.getElementById('color').value;
+            const color = $('#color').val();
             const item = new Chocolate(id, title, manufacture, price, categories, color);
             console.log(item);
             database.push(JSON.stringify(item));
             localStorage.setItem('items', JSON.stringify(database));
         } else if (categories === 'alcohol') {
-            const alcohol = document.getElementById('percent').value;
+            const alcohol = $('#percent').val();
             const item = new Alcohol(id, title, manufacture, price, categories, alcohol);
             console.log(item);
             database.push(JSON.stringify(item));

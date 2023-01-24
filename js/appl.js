@@ -3,32 +3,26 @@
 const storageVal = localStorage.getItem("items");
 const database = storageVal?JSON.parse(storageVal):[]
 
-const formLoader = document.querySelector('.loader');
-
-
-formLoader.addEventListener('change', e => {
+$('.loader').on('change', e => {
     let prodType = e.target.value;
     switch (prodType) {
         case 'milk':{
-            formLoader.querySelector('label').innerHTML=
-                `<input class="form-control" type="number" id="fat"
-               placeholder="Type fat">` ;
+            $('label').html(`<input class="form-control" type="number" 
+            id="fat" placeholder="Type fat">`);
             break;
         }
         case 'alcohol':{
-            formLoader.querySelector('label').innerHTML=
-                `<input class="form-control" type="number" id="percent"
-               placeholder="percent">` ;
+            $('label').html(`<input class="form-control" type="number" 
+            id="percent" placeholder="percent">`);
             break;
         }
         case 'chocolate':{
-            formLoader.querySelector('label').innerHTML=
-                `<input class="form-control" type="text" id="color"
-               placeholder="Color">` ;
+            $('label').html(`<input class="form-control" type="text" 
+            id="color" placeholder="Color">`);
             break;
         }
     }
-})
+});
 
     addItem = () => {
         const add = new Products();
@@ -36,24 +30,12 @@ formLoader.addEventListener('change', e => {
     }
 
 const btnProd = () => {
-    document.querySelectorAll('.activeProd').forEach(value => {
-        value.addEventListener('click', locationReload);
-    });
-    document.querySelectorAll('.showAllProducts').forEach(value => {
-        value.addEventListener('click', renderProd);
-    });
-    document.querySelectorAll('.activeAddProd').forEach(value => {
-        value.addEventListener('click', renderAddProd);
-    });
-    document.querySelectorAll('.milk').forEach(value => {
-        value.addEventListener('click', renderAllMilk);
-    });
-    document.querySelectorAll('.chocolate').forEach(value => {
-        value.addEventListener('click', renderAllChocolate);
-    });
-    document.querySelectorAll('.alcohol').forEach(value => {
-        value.addEventListener('click', renderAllAlcohol);
-    });
+    $('.activeProd').on('click', locationReload);
+    $('.showAllProducts').on('click', renderProd);
+    $('.activeAddProd').on('click', renderAddProd);
+    $('.milk').on('click', renderAllMilk);
+    $('.chocolate').on('click', renderAllChocolate);
+    $('.alcohol').on('click', renderAllAlcohol);
 }
 const renderProd = () => { // ProductsLink
     database.map((value,index) => {
@@ -68,23 +50,13 @@ const renderProd = () => { // ProductsLink
             newAlcohol.addAlcohol(value, index);
         }
     });
-
-    const id_nav = document.getElementById('side-nav');
-    id_nav.classList.remove('hide');
-    const id_add = document.getElementById('addProduct');
-    id_add.classList.add('hide');
-    const id_cards = document.getElementById('cards');
-    id_cards.classList.remove('hide');
-
+    hideProd();
 };
 
 const renderAddProd = () => {
-    const id_nav = document.getElementById('side-nav');
-    id_nav.classList.add('hide');
-    const id_add = document.getElementById('addProduct');
-    id_add.classList.remove('hide');
-    const id_cards = document.getElementById('cards');
-    id_cards.classList.add('hide');
+    $('#side-nav').hide();
+    $('#addProduct').show();
+    $('#cards').hide();
 };
 
 const locationReload = () => {
@@ -93,27 +65,17 @@ const locationReload = () => {
 
 
 const renderAllMilk = () => {
-    const id_nav = document.getElementById('side-nav');
-    id_nav.classList.remove('hide');
-    const id_add = document.getElementById('addProduct');
-    id_add.classList.add('hide');
-    const id_cards = document.getElementById('cards');
-    id_cards.classList.remove('hide');
-       database.forEach((value, index) => {
-           if (JSON.parse(value)._categories === 'milk') {
-               const newMilk = new Milk;
-               newMilk.addMilk(value, index);
+    hideProd();
+    database.forEach((value, index) => {
+        if (JSON.parse(value)._categories === 'milk') {
+            const newMilk = new Milk;
+            newMilk.addMilk(value, index);
             }
        });
 };
 
 const renderAllChocolate = () => {
-    const id_nav = document.getElementById('side-nav');
-    id_nav.classList.remove('hide');
-    const id_add = document.getElementById('addProduct');
-    id_add.classList.add('hide');
-    const id_cards = document.getElementById('cards');
-    id_cards.classList.remove('hide');
+    hideProd();
     database.forEach((value, index) => {
         if (JSON.parse(value)._categories === 'chocolate') {
             const newChocolate = new Chocolate;
@@ -123,19 +85,22 @@ const renderAllChocolate = () => {
 
 };
 const renderAllAlcohol = () => {
-    const id_nav = document.getElementById('side-nav');
-    id_nav.classList.remove('hide');
-    const id_add = document.getElementById('addProduct');
-    id_add.classList.add('hide');
-    const id_cards = document.getElementById('cards');
-    id_cards.classList.remove('hide');
+    hideProd();
     database.forEach((value, index) => {
         if (JSON.parse(value)._categories === 'alcohol') {
-            const newAlcohol = new Alcohol;
-            newAlcohol.addAlcohol(value, index);
+             const newAlcohol = new Alcohol;
+             newAlcohol.addAlcohol(value, index);
         }
     });
 
 };
 
+
+hideProd = () => {
+    $('#side-nav').show();
+    $('#addProduct').hide();
+    $('#cards').show();
+}
+
 btnProd();
+
